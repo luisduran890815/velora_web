@@ -3,12 +3,12 @@
 // Supabase > Project Settings > API
 // =========================================================
 window.VELORA_CONFIG = {
-  SUPABASE_URL: 'https://TU-PROYECTO.supabase.co',
-  SUPABASE_ANON_KEY: 'TU-ANON-PUBLIC-KEY',
+  SUPABASE_URL: 'https://yyzevylbaxahgdwyppmx.supabase.co',
+  SUPABASE_ANON_KEY: 'sb_publishable_q3tMQ6FRjU6QB-l8X-ociQ_2SSBu6I2',
 
   // WhatsApp en formato internacional, sin + ni espacios
-  WHATSAPP: '573000000000',
+  WHATSAPP: '573006227861',
 
-  EMAIL: 'contacto@velora.com.co',
+  EMAIL: 'agenciasegurosvelora@gmail.com',
   CIUDAD: 'Barranquilla, Colombia'
 };
