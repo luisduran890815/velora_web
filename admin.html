@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Administrar | Velora</title>
+  <link rel="icon" href="assets/img/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body class="admin-body">
+  <!-- LOGIN -->
+  <div id="login-view" class="login-wrap">
+    <form id="login-form" class="login-card">
+      <img src="assets/img/logo.svg" alt="Velora">
+      <h2>Panel de administración</h2>
+      <label>Correo<input type="email" name="email" required autocomplete="username"></label>
+      <label>Contraseña<input type="password" name="password" required autocomplete="current-password"></label>
+      <button class="btn btn-navy" type="submit">Ingresar</button>
+      <p id="login-status" class="status"></p>
+      <a href="index.html" class="small">← Volver al sitio</a>
+    </form>
+  </div>
+
+  <!-- PANEL -->
+  <div id="panel-view" hidden>
+    <header class="topbar">
+      <a href="index.html" class="brand" target="_blank"><img src="assets/img/logo.svg" alt="Velora"></a>
+      <div class="tabs">
+        <button class="tab active" data-tab="posts">Publicaciones</button>
+        <button class="tab" data-tab="leads">Solicitudes</button>
+        <button id="logout" class="btn btn-sm btn-gold">Salir</button>
+      </div>
+    </header>
+
+    <!-- PUBLICACIONES -->
+    <main id="tab-posts" class="admin-main">
+      <section class="panel">
+        <h2 id="form-title">Nueva publicación</h2>
+        <form id="post-form" class="post-form">
+          <input type="hidden" name="id">
+          <label>Tipo
+            <select name="type" required>
+              <option value="foto">Publicación con fotos (carrusel)</option>
+              <option value="articulo">Artículo</option>
+              <option value="video">Video de YouTube</option>
+            </select>
+          </label>
+          <label>Fecha<input type="date" name="date" required></label>
+          <label class="full">Título<input name="title" required maxlength="200"></label>
+          <label class="full">Descripción / resumen<textarea name="summary" rows="3"></textarea></label>
+          <label class="full only-articulo">Texto completo del artículo<textarea name="body" rows="8"></textarea></label>
+          <label class="full only-video">Enlace de YouTube<input name="youtube_url" placeholder="https://youtu.be/..."></label>
+          <div class="full only-foto only-articulo">
+            <label>Imágenes (puedes elegir varias; el artículo usa solo la primera como portada)
+              <input type="file" id="files" accept="image/*" multiple>
+            </label>
+            <div id="thumbs" class="thumbs"></div>
+          </div>
+          <label class="check full"><input type="checkbox" name="published" checked> Publicado (visible en el sitio)</label>
+          <div class="full row">
+            <button class="btn btn-navy" type="submit">Guardar</button>
+            <button class="btn btn-light" type="button" id="cancel-edit">Limpiar</button>
+            <span id="post-status" class="status"></span>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel">
+        <h2>Publicaciones existentes</h2>
+        <div id="post-list" class="list"></div>
+      </section>
+    </main>
+
+    <!-- SOLICITUDES -->
+    <main id="tab-leads" class="admin-main" hidden>
+      <section class="panel">
+        <div class="row between">
+          <h2>Solicitudes recibidas</h2>
+          <button class="btn btn-gold btn-sm" id="export-csv">Descargar Excel (CSV)</button>
+        </div>
+        <div class="table-wrap"><table id="lead-table"></table></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>
