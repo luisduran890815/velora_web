@@ -7,7 +7,7 @@ window.VELORA_CONFIG = {
   SUPABASE_ANON_KEY: 'sb_publishable_q3tMQ6FRjU6QB-l8X-ociQ_2SSBu6I2',
 
   // WhatsApp en formato internacional, sin + ni espacios
-  WHATSAPP: '573006227861',
+  WHATSAPP: '573102278807',
 
   EMAIL: 'agenciasegurosvelora@gmail.com',
   CIUDAD: 'Barranquilla, Colombia'
